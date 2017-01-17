@@ -78,7 +78,6 @@ public class ProductController {
 
     @RequestMapping(value = "/restrictions", method = RequestMethod.GET)
     public List<Product> findAllRestricted(){
-
         return this.productService.findAllRestricted();
 
     }

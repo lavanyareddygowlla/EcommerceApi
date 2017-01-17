@@ -33,7 +33,6 @@ public class Product {
     private Integer quantity;
     private Boolean restricted;
     private Date created;
-
     private Date updated;
 
 
