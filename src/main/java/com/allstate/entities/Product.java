@@ -1,8 +1,11 @@
 package com.allstate.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -15,6 +18,9 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
+    @Version
+    private int version;
+
     @Column(nullable = false, name = "stock_number")
     private String stockNumber;
     private String description;
@@ -26,6 +32,9 @@ public class Product {
     private Integer actualPrice;
     private Integer quantity;
     private Boolean restricted;
+    private Date created;
+
+    private Date updated;
 
 
     public Integer getActualPrice() {
@@ -60,6 +69,21 @@ public class Product {
 
     public void setStockNumber(String stockNumber) {
         this.stockNumber = stockNumber;
+    }
+    @CreationTimestamp
+    public Date getCreated() {
+        return created;
+    }
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    @UpdateTimestamp
+    public Date getUpdated() {
+        return updated;
+    }
+    public void setUpdated(Date updated) {
+        this.updated = updated;
     }
 
 }
